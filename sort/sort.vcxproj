@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="merge_sort.h" />
     <ClInclude Include="my_sort.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
