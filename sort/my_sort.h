@@ -79,10 +79,19 @@ namespace sort {
 		}
 	}
 
+	/*
+		原地归并排序:时间复杂度:O(NlgN),O(1)
+			
+	*/
 	template <class T>
 	void merge_sort(T arr[], size_t nums) {
 		Merge_Sort<T> ms;
 		ms.sort(arr, nums);
+	}
+
+	template <class T>
+	void quick_sort(T arr[],size_t nums) {
+
 	}
 
 	/*O(N)*/
