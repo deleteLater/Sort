@@ -72,6 +72,7 @@ namespace sort {
 		while (h >= 1) {
 			//insert_sort
 			for (size_t i = h; i < nums; i++) {
+				//插入arr[i]
 				for (size_t j = i; j >= h && arr[j] < arr[j - h]; j -= h)
 					std::swap(arr[j],arr[j-h]);
 			}
@@ -80,9 +81,10 @@ namespace sort {
 	}
 
 	/*
-		原地归并排序:时间复杂度:O(NlgN),O(1)
-			
+		原地归并排序:时间复杂度:O(NlgN),空间复杂度:O(1)
+		核心思想:分治法.将两个有序数组合并成一个有序数组
 	*/
+
 	template <class T>
 	void merge_sort(T arr[], size_t nums) {
 		Merge_Sort<T> ms;
@@ -144,5 +146,4 @@ namespace sort {
 		}
 		return -1.0;
 	}
-	
 }

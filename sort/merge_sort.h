@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-/*原地归并排序:空间复杂度O(N)*/
+/*原地归并排序:空间复杂度O(1)*/
 template <class T>
 class Merge_Sort {
 public:
