@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include "merge_sort.h"
+#include "quick_sort.h"
 
 namespace sort {
-	enum class FUNCTIONS {SELECT,INSERT,SHELL,MERGE};
+	enum class FUNCTIONS {SELECT,INSERT,SHELL,MERGE,QUICK};
 
 	/*
 		—°‘Ò≈≈–Ú:
@@ -93,7 +94,7 @@ namespace sort {
 
 	template <class T>
 	void quick_sort(T arr[],size_t nums) {
-
+		_qsort(arr, 0, nums - 1);
 	}
 
 	/*O(N)*/
@@ -136,6 +137,9 @@ namespace sort {
 			break;
 		case FUNCTIONS::MERGE:
 			merge_sort(arr, scale);
+			break;
+		case FUNCTIONS::QUICK:
+			quick_sort(arr, scale);
 			break;
 		}
 		clock_t end = clock();
