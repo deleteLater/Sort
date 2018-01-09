@@ -1,10 +1,11 @@
 #pragma once
-#include <algorithm>
+#include <utility>
+#include "simple_sort.h"
+#define SMALL_ARRAY_SIZE 15
 
-template <class T>
-size_t partition(T arr[], size_t lo, size_t hi) {
+size_t partition(int arr[], size_t lo, size_t hi) {
 	size_t i = lo, j = hi + 1;
-	T key = arr[lo];	//默认把切分区间的第一个元素作为key值
+	int key = arr[lo];	//默认把切分区间的第一个元素作为key值
 	/*
 	Other Edition for partition:
 	size_t i = lo,j = hi;
@@ -30,14 +31,12 @@ size_t partition(T arr[], size_t lo, size_t hi) {
 }
 
 /*快速排序*/
-template <class T>
-void _qsort(T arr[], size_t lo, size_t hi) {
+void _qsort(int arr[], size_t lo, size_t hi) {
 	/*  arr[] --> Array to be sorted,
 		lo  --> Starting index,
 		hi  --> Ending index
 	*/
-
-	if (hi <= lo) return;
+	if ((hi - lo + 1) <= SMALL_ARRAY_SIZE) { insert_sort(arr, lo, hi); return;}
 	size_t pivot = partition(arr, lo, hi);
 	_qsort(arr, lo, pivot - 1);
 	_qsort(arr, pivot + 1, hi);

@@ -30,6 +30,12 @@
     <ClInclude Include="quick_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="heap_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

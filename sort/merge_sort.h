@@ -1,28 +1,26 @@
 #pragma once
-#include <iostream>
-
-/*非原地归并排序:空间复杂度O(n)*/
-template <class T>
+#include "simple_sort.h"
+#define SMALL_ARRAY_SIZE 15
+/*
+	非原地,自底向上的归并排序:时间复杂度:O(NlgN),空间复杂度:O(n)
+		1.核心思想:分治法.将两个有序数组合并成一个有序数组
+		2.可以改成原地归并排序以使空间复杂度达到O(1),但是时间会增加,需要权衡
+		3.常用改进: 
+*/
 class Merge_Sort {
 public:
 	Merge_Sort() {}
-	void sort(T arr[], size_t nums) {
-		aux = new T[nums];
-		sort(arr,0,nums-1);
-	}
-private:
-	T * aux;
-	void sort(T arr[], size_t lo, size_t hi) {
+	void sort(int arr[], size_t lo, size_t hi) {
 		/*由上自下的递归版本
 		if (hi <= lo) return;
-		//if(hi-lo+1 <= 20) use insert_sort
 		size_t mid = lo + (hi - lo) / 2;
 		sort(arr, lo, mid);
 		sort(arr, mid + 1, hi);
-		merge(arr, lo, mid, hi);
-		*/
+		merge(arr, lo, mid, hi);*/
+
 
 		//由下自上的非递归版本
+		aux = new int[hi - lo + 1];
 		size_t N = hi - lo + 1;
 		for (size_t sz = 1; sz < N; sz *= 2) {
 			size_t grouping_size = 2 * sz;
@@ -34,7 +32,10 @@ private:
 			}
 		}
 	}
-	void merge(T arr[], size_t lo, size_t mid, size_t hi) {
+private:
+	int * aux;
+	void merge(int arr[], size_t lo, size_t mid, size_t hi) {
+		//if (arr[mid] < arr[hi])	return;   for sorted_small_array it maybe helpful 
 		//NOTICE:这里的mid应该指向前半个分组的最大值
 		size_t i = lo;
 		size_t j = mid + 1;
