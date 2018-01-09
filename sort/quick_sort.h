@@ -1,8 +1,5 @@
 #pragma once
 #include <algorithm>
-#include <stack>
-
-using std::stack;
 
 template <class T>
 size_t partition(T arr[], size_t lo, size_t hi) {
@@ -39,13 +36,14 @@ void _qsort(T arr[], size_t lo, size_t hi) {
 		lo  --> Starting index,
 		hi  --> Ending index
 	*/
+
+	if (hi <= lo) return;
+	size_t pivot = partition(arr, lo, hi);
+	_qsort(arr, lo, pivot - 1);
+	_qsort(arr, pivot + 1, hi);
+
 	/*
-		Recursive Edition:
-			if (hi <= lo) return;
-			size_t pivot = partition(arr, lo, hi);
-			_qsort(arr, lo, pivot - 1);
-			_qsort(arr, pivot + 1, hi);
-	*/
+	Non-Recursive Edition : Very slow on my computer...
 	// Create an auxiliary stack
 	stack<size_t> s;
 	// push initial values of l and h to stack
@@ -76,4 +74,5 @@ void _qsort(T arr[], size_t lo, size_t hi) {
 			s.push(hi);
 		}
 	}
+	*/
 }
