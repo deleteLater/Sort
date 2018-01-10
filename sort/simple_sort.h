@@ -13,7 +13,7 @@
 void select_sort(int arr[], size_t lo,size_t hi) {
 	for (size_t i = lo; i <= hi; i++) {
 		size_t min = i;
-		for (size_t j = i; j <= hi; j++) {
+		for (size_t j = i + 1; j <= hi; j++) {
 			if (arr[min] > arr[j])
 				min = j;
 		}
