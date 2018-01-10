@@ -5,6 +5,7 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "heap_sort.h"
+//TODO:improvement
 
 namespace sort {
 	enum class FUNCTIONS {SELECT,INSERT,SHELL,MERGE,QUICK,HEAP};
@@ -47,7 +48,7 @@ namespace sort {
 			shell_sort(arr, 0, scale - 1);
 			break;
 		case FUNCTIONS::MERGE:
-			Merge_Sort().sort(arr, 0,scale - 1);
+			Merge_Sort().sort(arr, 0, scale - 1);
 			break;
 		case FUNCTIONS::QUICK:
 			_qsort(arr, 0, scale - 1);

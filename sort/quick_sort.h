@@ -2,6 +2,7 @@
 #include <utility>
 #include "simple_sort.h"
 #define SMALL_ARRAY_SIZE 15
+//TODO:improvement
 
 size_t partition(int arr[], size_t lo, size_t hi) {
 	size_t i = lo, j = hi + 1;
@@ -36,6 +37,7 @@ void _qsort(int arr[], size_t lo, size_t hi) {
 		lo  --> Starting index,
 		hi  --> Ending index
 	*/
+	//for small_array,use simple sort
 	if ((hi - lo + 1) <= SMALL_ARRAY_SIZE) { insert_sort(arr, lo, hi); return;}
 	size_t pivot = partition(arr, lo, hi);
 	_qsort(arr, lo, pivot - 1);

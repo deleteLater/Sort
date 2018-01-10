@@ -5,6 +5,7 @@
 using std::cout;
 using std::endl;
 
+//TODO:improvement
 class Heap_sort {
 public:
 	Heap_sort(int arr[], size_t nums) {

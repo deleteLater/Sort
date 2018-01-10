@@ -1,12 +1,14 @@
 #pragma once
 #include "simple_sort.h"
 #define SMALL_ARRAY_SIZE 15
+//TODO:improvement
+
 /*
 	非原地,自底向上的归并排序:时间复杂度:O(NlgN),空间复杂度:O(n)
 		1.核心思想:分治法.将两个有序数组合并成一个有序数组
 		2.可以改成原地归并排序以使空间复杂度达到O(1),但是时间会增加,需要权衡
-		3.常用改进: 
 */
+
 class Merge_Sort {
 public:
 	Merge_Sort() {}
@@ -35,8 +37,9 @@ public:
 private:
 	int * aux;
 	void merge(int arr[], size_t lo, size_t mid, size_t hi) {
+		/*NOTICE:这里的mid应该指向前半个分组的最大值*/
 		//if (arr[mid] < arr[hi])	return;   for sorted_small_array it maybe helpful 
-		//NOTICE:这里的mid应该指向前半个分组的最大值
+		//使用辅助数组的非原地归并
 		size_t i = lo;
 		size_t j = mid + 1;
 		for (size_t k = lo; k <= hi; k++)
